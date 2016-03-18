@@ -1,3 +1,22 @@
 body {
-  color: red;
+  background-color: #ecf0f1;
+  text-align: center;
+  padding: 50px;
+  color: #7f8c8d;
+}
+
+h1 {
+  font-family: Montserrat, sans-serif;
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+svg {
+  background: white;
+  box-shadow: rgba(0,0,0,0.1) 5px 5px 0 0;
+  cursor: crosshair;
+}
+
+p {
+  margin-top: 25px;
 }
