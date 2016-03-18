@@ -1,5 +1,10 @@
 import path from 'path';
 import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+
+let babelSettings = {
+  presets: ['es2015']
+};
 
 module.exports = {
   cache: true,
@@ -8,13 +13,17 @@ module.exports = {
 
   output: {
     path: path.resolve("./dist"),
-    publicPath: "dist/",
+    publicPath: "/dist/",
     filename: "bundle.js",
     chunkFilename: "[chunkhash].js"
   },
 
   module: {
     loaders: [
+      {
+        test: /\.html$/,
+        loaders: ["html"]
+      },
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
@@ -23,9 +32,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel',
-        query: {
-          presets: ['es2015']
-        }
+        query: babelSettings
       }
     ]
   },
@@ -35,7 +42,10 @@ module.exports = {
   plugins: [
     new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
-    )
+    ),
+    new HtmlWebpackPlugin({
+      title: 'Vector'
+    })
   ]
 
 };

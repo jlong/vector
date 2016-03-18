@@ -1,11 +1,14 @@
 import d3 from 'd3/d3.min.js';
+import html from '../index.html';
+
+let black = '#34495e';
+let white = '#fff';
+let blue = '#3498db';
+let red = '#e74c3c';
+let silver = '#bdc3c7';
 
 export default function main() {
-  var black = '#34495e';
-  var white = '#fff';
-  var blue = '#3498db';
-  var red = '#e74c3c';
-  var silver = '#bdc3c7';
+  document.body.innerHTML = html;
 
   class Canvas {
     constructor(element) {
